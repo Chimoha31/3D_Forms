@@ -1,51 +1,30 @@
-'use strict';
+"use strict";
 
-var images = [
-  {
-    path: "image/img01.jpg",
-    name: "name01",
-    caption: "Comment1",
-  },
-  {
-    path: "image/img02.jpg",
-    name: "name02",
-    caption: "Comment2",
-  },
-  {
-    path: "image/img03.jpg",
-    name: "name03",
-    caption: "Comment3",
-  },
-];
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "https://h2o-space.com/htmlbook/images.php");
+ajax.responseType = "json";
+ajax.send(null);
 
-var img;
-var caption;
-var div;
+ajax.onreadystatechange = function () {
+  // alert(ajax.readyState); 通信が終わった時に受け取れる数字は、最後は4！
+  if (ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
+    for (var i = 0; i < this.response.length; i++) {
+      var data = this.response[i];
 
+      var img = document.createElement("img");
+      img.setAttribute("src", data.path);
 
-for(var i = 0; i < images.length; i++) {
-img = document.createElement('img');
-img.setAttribute('src', images[i].path);
-// ↑<img src="image/img01.jpg">が作られた
+      var caption = document.createElement("div");
+      caption.className = "inner";
+      caption.innerHTML =
+        "<p>" + data.caption + "<span>" + data.name + "</span></p>";
 
-caption = document.createElement('div');
-caption.className = 'inner';
-caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
-/* ↑<div class="inner">
-       <p>Comment1<span>name01</span></p>
-     </div>
-*/
-div = document.createElement('div');
-div.className = 'photo';
-div.appendChild(img);
-div.appendChild(caption);
-/* ↑
-    <div class="photo">
-      <img src="image/img01.jpg">
-      <div class="inner">
-        <p>Comment1<span>name01</span></p>
-      </div>
-    </div>
-*/
-document.getElementById('img_unit').appendChild(div);
-}
+      var div = document.createElement("div");
+      div.className = "photo";
+      div.appendChild(img);
+      div.appendChild(caption);
+
+      document.getElementById("img_unit").appendChild(div);
+    }
+  }
+};
