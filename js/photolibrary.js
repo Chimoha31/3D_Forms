@@ -11,19 +11,26 @@ var images = [
     name: "name02",
     caption: "Comment2",
   },
+  {
+    path: "image/img03.jpg",
+    name: "name03",
+    caption: "Comment3",
+  },
 ];
 
 var img;
 var caption;
 var div;
 
+
+for(var i = 0; i < images.length; i++) {
 img = document.createElement('img');
-img.setAttribute('src', images[0].path);
+img.setAttribute('src', images[i].path);
 // ↑<img src="image/img01.jpg">が作られた
 
 caption = document.createElement('div');
 caption.className = 'inner';
-caption.innerHTML = '<p>' + images[0].caption + '<span>' + images[0].name + '</span></p>';
+caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
 /* ↑<div class="inner">
        <p>Comment1<span>name01</span></p>
      </div>
@@ -41,3 +48,4 @@ div.appendChild(caption);
     </div>
 */
 document.getElementById('img_unit').appendChild(div);
+}
