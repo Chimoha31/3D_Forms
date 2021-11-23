@@ -13,3 +13,5 @@ signInBtn.addEventListener('click', (e) => {
   e.preventDefault();
   formsWrapper.classList.remove('change');
 });
+
+
