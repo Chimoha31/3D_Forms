@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ご利用アンケート</title>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   <link rel="stylesheet" href="css/questionnaireForm.css">
 </head>
 
@@ -14,21 +15,96 @@
     <header>
       <div class="row">
         <div class="col-sm-6">
-          <h1>ご利用アンケート</h1>
+          <h1>Questionnaire Form / ご利用アンケート</h1>
         </div>
         <div class="col-sm-6 text-right">
-          <a href="/">Homeへ戻る</a>
+          <a href="/">Return Home</a>
         </div>
       </div>
     </header>
-
+  </div>
     
   <hr />
-  <hr />
+
+  <div class="container">
+    <form action="" method="post" class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p>Thank you for choosing our product and your purchase. Please fill in the questinaier form and click send botton if you don't mind.</p>
+        
+        <!-- 名前 -->
+        <div class="form-group">
+          <label for="name">NAME <span class="badge badge-danger">Mandatory</span></label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="(Example) Atnder" required>
+        </div>
+
+        <!-- 職業 -->
+        <div class="form-group">
+          <label for="job">OCCUPATION</label>
+          <select id="job" name="job" class="form-control">
+            <option value="">Please select below</option>
+            <option value="会社員">Full time worler</option>
+            <option value="学生">Student</option>
+            <option value="その他">else</option>
+          </select>
+        </div>
+
+        <!-- 知りたい内容 -->
+        <div class="form-group">
+          <label for="">Languages you want to study (multiple)</label>
+          <div class="form-check">
+            <input type="checkbox" name="q1" id="q1_1" value="html" class="form-check-input">
+            <label for="q1_1" class="form-check-label">HTML</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" name="q1" id="q1_2" value="css" class="form-check-input">
+            <label for="q1_2" class="form-check-label">CSS</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" name="q1" id="q1_3" value="javascript" class="form-check-input">
+            <label for="q1_3" class="form-check-label">Javascript</label>
+          </div>
+        </div>
+
+        <!-- 理解度 -->
+        <div class="form-group">
+          <div>
+            <label>Your comprehension</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="q2" id="q2_1" value="1">
+            <label for="q2_1" class="form-check-label">Bad</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="q2" id="q2_2" value="2">
+            <label for="q2_2" class="form-check-label">Good</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="q2" id="q2_3" value="3">
+            <label for="q2_3" class="form-check-label">Excellent</label>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="q2" id="q2_4" value="">
+            <label for="q2_4" class="form-check-label">I don't want to answer</label>
+          </div>
+        </div>
+
+        <!-- ご意見 -->
+        <div class="form-group">
+          <label for="message" class="d-block">Your feedback</label>
+          <textarea name="message" id="message" rows="10" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+  <hr>
   
-    <footer>
-      &copyちほスタ
-    </footer>
+  
+  <div class="container">
+      <footer>
+        &copyちほスタ
+      </footer>
   </div>
   
   <script src=js/questionnaireForm.js></script>

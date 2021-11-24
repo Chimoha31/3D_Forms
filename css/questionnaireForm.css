@@ -14,3 +14,11 @@ h1 {
   font-weight: bold;
   margin: 0;
 }
+
+.form-group span {
+  background-color: red;
+}
+
+.form-check-inline {
+  display: inline;
+}
